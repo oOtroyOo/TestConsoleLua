@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Text;
 using XLua;
 
 
@@ -10,8 +12,7 @@ class Program
     {
         using (LuaEnv luaEnv = new LuaEnv())
         {
-            var code = "print('今年一定旺') \n" +
-                       "return '明年也要旺'";
+            var code = File.ReadAllText("NewFile.lua", Encoding.UTF8);
 
             Console.WriteLine(luaEnv.DoString(code).First());
         }
