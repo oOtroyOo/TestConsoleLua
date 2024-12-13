@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using XLua;
 
@@ -9,11 +10,13 @@ class Program
     {
         using (LuaEnv luaEnv = new LuaEnv())
         {
-            var code =
-                "print('今年一定旺') \n" +
-                "return '明年也要旺'";
+            var code = "print('今年一定旺') \n" +
+                       "return '明年也要旺'";
 
             Console.WriteLine(luaEnv.DoString(code).First());
         }
+
+        if (!Debugger.IsAttached)
+            Console.ReadKey();
     }
 }
