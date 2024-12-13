@@ -7,21 +7,16 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Mono.Cecil" Version="*"/>
-        <Compile Include="..\xLua\Assets\XLua\Src\*.cs">
+        <Compile Include="..\xLua\Assets\XLua\Src\**\*.cs">
             <Link>*</Link>
         </Compile>
-        <Compile Include="..\xLua\Assets\XLua\Src\TemplateEngine\*.cs">
-            <Link>*</Link>
-        </Compile>
-    </ItemGroup>
-    <ItemGroup>
+        <Compile Remove="..\xLua\Assets\XLua\Src\Editor\LinkXmlGen\*"/>
+        <Compile Remove="..\xLua\Assets\XLua\Src\Editor\TemplateRef.cs"/>
         <Content Include="..\xLua\Assets\Plugins\x86_64\xlua.dll">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
-    </ItemGroup>
-    <ItemGroup>
-      <None Update="NewFile.lua">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
+        <Content Include="NewFile.lua">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 </Project>
